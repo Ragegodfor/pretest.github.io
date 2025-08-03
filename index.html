@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.15em;
+    text-shadow:
+      2px 2px 4px rgba(0,0,0,0.2),
+      0 0 10px rgba(255,255,255,0.5);
+    animation: glow 2.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow:
+        2px 2px 4px rgba(0,0,0,0.2),
+        0 0 10px rgba(255,255,255,0.5);
+    }
+    to {
+      text-shadow:
+        2px 2px 8px rgba(0,0,0,0.4),
+        0 0 20px rgba(255,255,255,0.8);
+    }
+  }
+
+  /* ไฟวิ่งเบา ๆ */
+  .sparkles {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 2px white);
+    animation: sparkleAnim 4s linear infinite;
+    opacity: 0.8;
+  }
+
+  @keyframes sparkleAnim {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0;
+      scale: 1.5;
+    }
+    100% {
+      transform: translateY(-300px) translateX(50px) scale(1);
+      opacity: 0.8;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>ว่างเปล่า... แต่สวยงาม</h1>
+
+<script>
+  // สร้างไฟวิ่งกระพริบแบบสุ่มเล็กๆ
+  for(let i = 0; i < 30; i++){
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkles');
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.top = Math.random() * 100 + 'vh';
+    sparkle.style.animationDelay = (Math.random() * 4) + 's';
+    sparkle.style.animationDuration = (3 + Math.random() * 2) + 's';
+    document.body.appendChild(sparkle);
+  }
+</script>
+
+</body>
+</html>
